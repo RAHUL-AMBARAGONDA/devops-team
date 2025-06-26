@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/RAHUL-AMBARAGONDA/calculator-app
+    repoURL: https://github.com/RAHUL-AMBARAGONDA/new-gitops-repo
     targetRevision: main
     path: k8s
   destination:
@@ -16,3 +16,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
