@@ -6,9 +6,12 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/RAHUL-AMBARAGONDA/new-gitops-repo
+    repoURL: https://github.com/RAHUL-AMBARAGONDA/calculator-app
     targetRevision: main
-    path: k8s
+    path: charts/calculator
+    helm:
+      valueFiles:
+        - ../../../values/calculator/values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: calculator
@@ -16,5 +19,3 @@ spec:
     automated:
       prune: true
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
