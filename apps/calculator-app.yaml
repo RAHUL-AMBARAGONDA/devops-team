@@ -3,6 +3,10 @@ kind: Application
 metadata:
   name: calculator-app-dev
   namespace: argocd
+  annotations:
+  argocd-image-updater.argoproj.io/image-list: calculator=docker.io/rahulambaragonda/calculator
+  argocd-image-updater.argoproj.io/calculator.update-strategy: latest
+  argocd-image-updater.argoproj.io/write-back-method: git:secret
 spec:
   project: default
   source:
