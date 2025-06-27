@@ -8,7 +8,10 @@ spec:
   source:
     repoURL: https://github.com/RAHUL-AMBARAGONDA/new-gitops-repo
     targetRevision: main
-    path: k8s
+    path: charts/calculator
+    helm:
+      valueFiles:
+        - ../../values/calculator/values.yaml   # Adjust relative path based on your repo layout
   destination:
     server: https://kubernetes.default.svc
     namespace: calculator
@@ -16,5 +19,3 @@ spec:
     automated:
       prune: true
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
