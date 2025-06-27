@@ -1,8 +1,8 @@
 replicaCount: 4
 
 image:
-  repository: rahulambaragonda/calculator-app
-  tag: latest
+  repository: docker.io/rahulambaragonda/calculator
+  tag: ""
   pullPolicy: Always
 
 service:
