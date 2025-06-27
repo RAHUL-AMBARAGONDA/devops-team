@@ -4,10 +4,11 @@ metadata:
   name: app-of-apps
   namespace: argocd
 spec:
+  project: default
   source:
     repoURL: https://github.com/RAHUL-AMBARAGONDA/devops-team.git
     targetRevision: main
-    path: apps
+    path: apps                # <-- This is where your child apps are
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
