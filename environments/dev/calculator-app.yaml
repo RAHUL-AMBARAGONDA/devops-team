@@ -6,14 +6,14 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/RAHUL-AMBARAGONDA/calculator-app
+    repoURL: https://github.com/RAHUL-AMBARAGONDA/calculator-app.git
     targetRevision: main
     path: charts/calculator
     helm:
       valueFiles:
-        - values-dev.yaml
+        - values.yaml          # or values-dev.yaml if you create env-specific overrides
   destination:
-    server: https://<DEV-CLUSTER-API>
+    server: https://kubernetes.default.svc  # dev cluster API
     namespace: calculator-dev
   syncPolicy:
     automated:
