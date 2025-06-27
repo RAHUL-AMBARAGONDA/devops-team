@@ -1,20 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: calculator-app
+  name: calculator-app-dev
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: https://github.com/RAHUL-AMBARAGONDA/new-gitops-repo
+    repoURL: https://github.com/RAHUL-AMBARAGONDA/devops-team
     targetRevision: main
     path: charts/calculator
     helm:
       valueFiles:
-        - ../../values/calculator/values.yaml   # Adjust relative path based on your repo layout
+        - values/dev.yaml
   destination:
     server: https://kubernetes.default.svc
-    namespace: calculator
+    namespace: calculator-dev
   syncPolicy:
     automated:
       prune: true
