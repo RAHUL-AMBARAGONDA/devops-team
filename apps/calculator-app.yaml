@@ -11,7 +11,7 @@ spec:
     path: charts/calculator
     helm:
       valueFiles:
-        - ../../../values/calculator/values.yaml
+        - ../../values/calculator/values.yaml   # Adjust relative path based on your repo layout
   destination:
     server: https://kubernetes.default.svc
     namespace: calculator
