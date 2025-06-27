@@ -1,0 +1,7 @@
+replicaCount: 3
+
+image:
+  repository: rahulambaragonda/calculator-app
+  tag: latest
+
+containerPort: 3000
