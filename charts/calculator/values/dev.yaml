@@ -2,7 +2,7 @@ replicaCount: 4
 
 image:
   repository: docker.io/rahulambaragonda/calculator
-  tag: "calculator-1688000000"
+  tag: "calculator-1751213639"
   pullPolicy: Always
 service:
   type: ClusterIP
