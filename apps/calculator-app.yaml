@@ -8,10 +8,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      GITOPS_REPO: git@github.com:RAHUL-AMBARAGONDA/devops-team.git
+      GITOPS_REPO: RAHUL-AMBARAGONDA/devops-team
       GITOPS_REPO_DIR: ./devops-team
       GITOPS_REPO_BRANCH: main
       VALUES_FILE: charts/calculator/values/dev.yaml
+
     steps:
       - name: Checkout Source Code
         uses: actions/checkout@v3
@@ -36,6 +37,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: ${{ env.GITOPS_REPO }}
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
           ref: ${{ env.GITOPS_REPO_BRANCH }}
           path: ${{ env.GITOPS_REPO_DIR }}
 
@@ -48,8 +50,10 @@ jobs:
         run: |
           cd $GITOPS_REPO_DIR
           yq eval ".image.tag = \"$IMAGE_TAG\"" -i $VALUES_FILE
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions"
           git add $VALUES_FILE
           git diff --quiet || (git commit -m "chore: update calculator image tag to $IMAGE_TAG" && git push origin $GITOPS_REPO_BRANCH)
 
       - name: Finish
-        run: echo "Image updated and changes pushed to GitOps repo"
+        run: echo "✅ Image updated and pushed to GitOps repo"
