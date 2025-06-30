@@ -1,0 +1,30 @@
+name: Helm Lint & Template Check
+
+on:
+  pull_request:
+    paths:
+      - 'charts/**'
+      - 'apps/**/helm-values/**'
+  push:
+    branches: [ main ]
+
+jobs:
+  helm-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Helm
+      uses: azure/setup-helm@v3
+
+    - name: Lint Helm charts
+      run: |
+        helm lint charts/**
+
+    - name: Template all values.yaml
+      run: |
+        for file in $(find apps -name values.yaml); do
+          helm template dummy charts/calculator -f "$file" > /dev/null
+        done
