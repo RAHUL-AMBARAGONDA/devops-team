@@ -1,0 +1,8 @@
+helm:
+  parameters:
+  - name: image.name
+    value: rahulambaragonda/calculator
+    forcestring: true
+  - name: image.tag
+    value: v1.4
+    forcestring: true
