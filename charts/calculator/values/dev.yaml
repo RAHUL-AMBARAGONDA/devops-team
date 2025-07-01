@@ -1,9 +1,10 @@
 replicaCount: 4
 
 image:
-  repository: docker.io/rahulambaragonda/calculator
+  repository: rahulambaragonda/calculator
   tag: v1.1
   pullPolicy: Always
+
 service:
   type: ClusterIP
   port: 3000
