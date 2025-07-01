@@ -4,5 +4,5 @@ helm:
     value: rahulambaragonda/calculator
     forcestring: true
   - name: image.tag
-    value: v1.4
+    value: v1.5
     forcestring: true
