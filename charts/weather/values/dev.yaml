@@ -1,10 +1,11 @@
 replicaCount: 1
 
 image:
-  repository: "ghcr.io/la-cc/simple-webapp:1.0.1"
-  tag: dev
+  repository: nginx
+  tag: stable
 
 resources:
   limits:
     cpu: 200m
     memory: 256Mi
+
