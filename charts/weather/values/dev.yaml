@@ -1,0 +1,10 @@
+replicaCount: 1
+
+image:
+  repository: rahulambaragonda/weather-service
+  tag: dev
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
