@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: <your-repo-url>
+    repoURL: https://github.com/RAHUL-AMBARAGONDA/new-gitops-repo
     targetRevision: main
     path: apps  # <-- points to folder containing child Application manifests
   destination:
