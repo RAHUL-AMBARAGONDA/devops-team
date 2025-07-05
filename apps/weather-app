@@ -1,22 +1,22 @@
-# devops-team/apps/payment-app.yaml
+# apps/weather-app.yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: payment-app
+  name: weather-app-dev
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: https://github.com/RAHUL-AMBARAGONDA/new-gitops-repo
+    repoURL: https://github.com/RAHUL-AMBARAGONDA/devops-team.git
     targetRevision: main
-    path: k8s
+    path: charts/weather
+    helm:
+      valueFiles:
+        - values/dev.yaml
   destination:
     server: https://kubernetes.default.svc
-    namespace: payment
+    namespace: weather-dev
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-      syncOptions:
-      - CreateNamespace=true
-
