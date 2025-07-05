@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: rahulambaragonda/weather-service
+  repository: "ghcr.io/la-cc/simple-webapp:1.0.1"
   tag: dev
 
 resources:
